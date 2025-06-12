@@ -7,7 +7,10 @@ body {
   background-repeat: repeat;
   background-size: 150px;
   color: rgb(119, 114, 114);
-  text-align: center;
+  display: flex;
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;
+  
 }
 
 .App {
@@ -16,6 +19,7 @@ body {
   background-color: #ffe6e6;
   font-family: 'Arial', sans-serif;
   min-height: 100vh;
+  margin: 0 auto;
 }
 
 h1 {
