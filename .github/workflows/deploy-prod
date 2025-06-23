@@ -1,0 +1,33 @@
+name: Deploy para Produção
+
+on:
+  push:
+    branches:
+      - main  # dispara o deploy ao dar push na main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fazer checkout do código
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH na VPS
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22  # se sua VPS usa outra porta SSH, mude aqui
+          script: |
+            cd /root/code/app-deploy/DiaDosNamorados/myapp
+            git pull origin main
+            npm install
+            npm start &  # roda em background
+
+            cd ../amores
+            npm install
+            npm run dev -- --host &
+
+           
