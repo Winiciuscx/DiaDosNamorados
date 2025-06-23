@@ -19,7 +19,7 @@ jobs:
           host: "46.202.144.162"
           username: "root"
           key: ${{ secrets.VPS_SSH_KEY }}
-          port: 22  # se sua VPS usa outra porta SSH, mude aqui
+      
           script: |
             cd /root/code/app-deploy/DiaDosNamorados/myapp
             git pull origin main
