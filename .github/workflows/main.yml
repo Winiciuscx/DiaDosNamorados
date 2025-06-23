@@ -30,4 +30,6 @@ jobs:
             npm install
             npm run dev -- --host &
 
+            exit 0
+
            
