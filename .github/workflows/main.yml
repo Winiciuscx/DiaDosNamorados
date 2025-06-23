@@ -24,12 +24,13 @@ jobs:
             cd /root/code/app-deploy/DiaDosNamorados/myapp
             git pull origin main
             npm install
-            npm start &  # roda em background
-
+            nohup npm start > /dev/null 2>&1 &
             cd ../Amores
             npm install
-            npm run dev -- --host &
-
+            nohup npm run dev -- --host > /dev/null 2>&1 &
             exit 0
+
+            
+
 
            
